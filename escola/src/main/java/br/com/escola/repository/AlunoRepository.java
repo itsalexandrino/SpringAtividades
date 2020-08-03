@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.escola.model.Turma;
+import br.com.escola.model.Aluno;
 
 @Repository
-public interface TurmaRepository extends JpaRepository<Turma, Long> {
-
+public interface AlunoRepository extends JpaRepository<Aluno, Long>{
+	
 }

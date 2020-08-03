@@ -1,4 +1,4 @@
-package br.com.escola.model;
+package com.farmacia10.farmacia.model;
 
 import java.util.List;
 
@@ -13,47 +13,55 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
+
 @Entity // criar tabela
-@Table(name = "tb_turma") // esta criando a tabela no banco com os atributos
-public class Turma {
+@Table(name = "tb_categoria") // esta criando a tabela no banco com os atributos
+public class Categoria {
 	
-	@Id // minha chave primaria
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
+	@Id	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotNull
-	private String turma;
-	
+	private String descricao;
 	
 	private boolean ativo;
 	
-	@OneToMany(mappedBy = "turma", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("turma")
-	private List<Aluno> aluno;
-	
-	public List<Aluno> getAluno() {
-		return aluno;
-	}
-	public void setAluno(List<Aluno> aluno) {
-		this.aluno = aluno;
-	}
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("categoria")
+	private List<Produto> produto;
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getTurma() {
-		return turma;
+
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setTurma(String turma) {
-		this.turma = turma;
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
+
 	public boolean isAtivo() {
 		return ativo;
 	}
+
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
 
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
+	
+	
 }
